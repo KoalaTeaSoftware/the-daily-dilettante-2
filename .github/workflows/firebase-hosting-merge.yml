@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout SUT
         uses: actions/checkout@v2
-            
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
