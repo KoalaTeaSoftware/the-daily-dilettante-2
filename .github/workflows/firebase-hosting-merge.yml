@@ -15,8 +15,8 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
-        env:
-          CYPRESS_baseUrl: http://localhost
+#        env:
+#          CYPRESS_baseUrl: http://localhost
 #  build_and_deploy:
 #    runs-on: ubuntu-latest
 #    steps:
