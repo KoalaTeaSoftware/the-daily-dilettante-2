@@ -1,2 +1,19 @@
 # the-daily-dilettante-2
-Re-engineer of the site to use new Node etc. because GitHub actions automatically use new node etc.
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

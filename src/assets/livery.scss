@@ -1,0 +1,20 @@
+$colour-page-background: #F7D059; // #FFFFBF;
+$colour-banner-background: #05423C;
+$colour-banner-primary-text: $colour-page-background; //#FC3;
+$colour-banner-secondary-text: #5AB59B;
+
+$colour-body-text: black;
+$colour-body-text-shadow: black;
+
+$margin-furniture: 0.5rem;
+$pin-stripe-width: 1px;
+$pin-stripe-style: solid;
+
+//noinspection CssUnknownTarget
+@font-face {
+  font-family: 'branded-font';
+  src: url('/src/assets/DOMINICA.eot');
+  src: url('/src/assets/DOMINICA.woff') format('woff'), /* Modern Browsers */
+  url('/src/assets/DOMINICA.woff2') format('woff2'), /* Modern Browsers */
+  url('/src/assets/DOMINICA.TTF') format('truetype'); /* Safari, Android, iOS */
+}
