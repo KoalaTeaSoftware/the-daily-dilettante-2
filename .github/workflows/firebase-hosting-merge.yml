@@ -13,6 +13,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
+      - name: Cypress info
+        uses: ./
+        with:
+          # just for full picture after installing Cypress
+          # print information about detected browsers, etc
+          # see https://on.cypress.io/command-line#cypress-info
+          build: npx cypress info
+          working-directory: examples/chrome
+        
       - name: Cypress run
         uses: cypress-io/github-action@v2
 
