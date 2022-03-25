@@ -18,9 +18,9 @@ jobs:
         with:
           browser: chrome
           start: npm run production
-          wait-on: http://localhost:8081/
+          wait-on: http://localhost:8080/
         env:
-          CYPRESS_baseUrl: http://localhost:8081/
+          CYPRESS_baseUrl: http://localhost:8080/
 #  build_and_deploy:
 #    runs-on: ubuntu-latest
 #    steps:
