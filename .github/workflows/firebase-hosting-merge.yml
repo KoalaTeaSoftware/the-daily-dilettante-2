@@ -14,10 +14,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Cypress run
-      - run: npm ci && npm run build
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
+          start: npm run serve
+          wait-on: http://localhost:8080/
 #        env:
 #          CYPRESS_baseUrl: http://localhost
 #  build_and_deploy:
