@@ -12,15 +12,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
       - name: Cypress run
         uses: cypress-io/github-action@v2
-        with:
-          start: npm run serve
-          wait-on: <http://localhost:8080/>
-          config_file: cypress.json
-          spec: "integration/**/*"
-        env:
-          CYPRESS_baseUrl: <http://localhost:8080/>
 
 #  build_and_deploy:
 #    runs-on: ubuntu-latest
