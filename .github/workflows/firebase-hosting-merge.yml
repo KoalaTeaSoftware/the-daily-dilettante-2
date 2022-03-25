@@ -17,10 +17,10 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-          start: npm run serve
-          wait-on: http://localhost:8080/
-#        env:
-#          CYPRESS_baseUrl: http://localhost
+          start: npm run production
+          wait-on: http://localhost:8081/
+        env:
+          CYPRESS_baseUrl: http://localhost:8081/
 #  build_and_deploy:
 #    runs-on: ubuntu-latest
 #    steps:
