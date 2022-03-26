@@ -23,14 +23,16 @@ jobs:
         env:
           CYPRESS_baseUrl: http://localhost:8080/
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-#  build_and_deploy:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - run: npm ci && npm run build
-#      - uses: FirebaseExtended/action-hosting-deploy@v0
-#        with:
-#          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-#          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_STAGE_5675E }}'
-#          channelId: live
-#          projectId: stage-5675e
+
+  build_and_deploy:
+    needs: e2e_test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci && npm run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_STAGE_5675E }}'
+          channelId: live
+          projectId: stage-5675e
