@@ -22,6 +22,7 @@ jobs:
           record: true
         env:
           CYPRESS_baseUrl: http://localhost:8080/
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 #  build_and_deploy:
 #    runs-on: ubuntu-latest
 #    steps:
