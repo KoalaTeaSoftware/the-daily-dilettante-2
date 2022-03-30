@@ -1,4 +1,9 @@
 {
   "baseUrl": "http://localhost:8080",
-  "projectId": "rf3fw3"
+  "projectId": "rf3fw3",
+  "integrationFolder": "cypress/tests",
+  "ignoreTestFiles": [
+    "*.md",
+    "**/samples/**"
+  ]
 }
