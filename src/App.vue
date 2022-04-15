@@ -1,9 +1,6 @@
 <template>
   <div id="header" class="fixed-top">
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-    </nav>
+    <MainNav/>
   </div>
   <div id="content">
     <router-view/>
@@ -47,22 +44,11 @@
     font-family: branded-font, "Times New Roman", Times, serif;
     text-align: center;
   }
-
-  nav {
-    .router-link-active {
-      font-weight: bolder;
-    }
-
-    a {
-      font-family:  branded-font, "Times New Roman", Times, serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      color: $colour-banner-primary-text;
-
-      // ToDo: these will be changed when this is converted into a Bootstrap navbar
-      font-size: 2em;
-      margin: 0.25em;
-    }
-  }
 }
 </style>
+<script>
+import MainNav from "@/components/MainNav";
+export default {
+  components: {MainNav}
+}
+</script>
