@@ -1,4 +1,7 @@
-describe("Landing Page Smoke Tests", ()=>{
+/*
+The landing page is the same as the welcome page so do no more than see that we are on th welcome page
+ */
+describe("The Landing Page (Smoke Tests)", ()=>{
     beforeEach(()=>{
         cy.visit("")
     })
