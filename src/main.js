@@ -5,7 +5,7 @@ import router from './router'
 
 // this is what is needed to get firebase going, and to get access to the pages database
 import {initializeApp} from "firebase/app";
-import {getFirestore, collection, getDocs} from "firebase/firestore";
+import {getFirestore} from "firebase/firestore";
 import {getAnalytics} from "firebase/analytics";
 
 // ToDo: turn the API key into a 'secret'
@@ -20,20 +20,14 @@ const firebaseConfig = {
 };
 
 // this makes a couple of objects that should be visible the world over
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// to use them has something like import {DB_HANDLE} from '@/main.js'
+export const APP_HANDLE = initializeApp(firebaseConfig);
+export const DB_HANDLE = getFirestore(APP_HANDLE);
 
 // still don't know much about this
-const analytics = getAnalytics(app);
+const analytics = getAnalytics(APP_HANDLE);
 
 // actually generate the site
 createApp(App)
     .use(router)
     .mount('#app')
-
-// this is a sample to prove that we can read fomr the pages
-getDocs(collection(db, "pages")).then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${JSON.stringify(doc.data())}`)
-    });
-});

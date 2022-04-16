@@ -2,6 +2,7 @@
   <!--suppress HtmlUnknownBooleanAttribute -->
   <div id="welcome" class="container fluid">
     <h1>Welcome</h1>
+    <editable-div identity="welcome-1"></editable-div>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ultricies dui. Phasellus justo libero,
       fringilla id euismod in, tristique ut dolor. Donec ut est enim. Mauris egestas tellus quis porta condimentum.
@@ -180,7 +181,9 @@
 
 <script>
 
+import EditableDiv from "@/components/EditableDiv";
 export default {
-  name: 'Welcome'
+  name: 'Welcome',
+  components: {EditableDiv}
 }
 </script>
