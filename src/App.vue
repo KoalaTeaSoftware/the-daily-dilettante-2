@@ -22,8 +22,8 @@
   background-image: url("@/assets/paper.webp");
   background-repeat: repeat;
 
-  // force it to use as much space as is shown on the screen % works, but vh leaves a lot with a default background colour
-  height: 100%;
+  // force it to use as much space as is shown on the screen
+  height: 100vh;
 
   text-align: center;
 

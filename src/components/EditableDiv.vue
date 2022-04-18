@@ -10,10 +10,10 @@ The VueShowdown component is detailed in various places
 
 <template>
   <div :id="identity" class="editableDiv">
-    <div v-show="busy">
+    <div v-show="busy" class="loadingSpinner">
       <div class="spinner-border" role="status"/>
+      <span class="sr-only">Loading...</span>
     </div>
-    <span v-show="busy" class="sr-only">Loading...</span>
     <markDownPanel
         class="displayedContent"
         :markdown=publishedContent
