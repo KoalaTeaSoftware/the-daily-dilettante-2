@@ -11,21 +11,29 @@
 <style lang="scss">
 @import "src/assets/livery";
 
-#app {
-  font-family: "Times New Roman", Times, serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+// Apply these attributes to the body tag so that the whole page, irrespective of size will look yellow
+body{
   color: $colour-body-text;
   background-color: $colour-page-background !important;
-
   //noinspection CssUnknownTarget
   background-image: url("@/assets/paper.webp");
   background-repeat: repeat;
 
   // force it to use as much space as is shown on the screen
-  height: 100vh;
+  //height: 100vh;
+}
+
+#app {
+  font-family: "Times New Roman", Times, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   text-align: center;
+
+  img, iframe, audio {
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px $colour-body-text-shadow;
+  }
 
   #header, #footer {
     color: $colour-banner-primary-text;
