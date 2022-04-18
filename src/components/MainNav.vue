@@ -16,6 +16,15 @@ export default {
 @import "src/assets/livery";
 
 nav {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border-color: $colour-page-background;
+  border-style: solid ;
+  border-left: none;
+  border-right: none;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+
   a {
     font-family: branded-font, "Times New Roman", Times, serif;
     -webkit-font-smoothing: antialiased;

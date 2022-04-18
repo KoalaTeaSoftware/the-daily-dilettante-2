@@ -9,7 +9,7 @@
     </div>
     <div class="row align-items-center">
       <div class="col-md" id="caro">
-        <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
           <div class="carousel-inner">
             <div class="carousel-item" v-for="pic in caroImgList">
               <img class="d-block w-100"
