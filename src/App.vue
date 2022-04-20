@@ -1,6 +1,6 @@
 <template>
-  <div id="header" class="fixed-top">
-    <MainNav/>
+  <div id="header">
+    <Header/>
   </div>
   <div id="content">
     <router-view/>
@@ -55,8 +55,8 @@ body{
 }
 </style>
 <script>
-import MainNav from "@/components/MainNav";
+import Header from "@/components/Header";
 export default {
-  components: {MainNav}
+  components: {Header}
 }
 </script>
