@@ -34,7 +34,8 @@ This is probably going to mean sizing / hiding the logo according to the viewpor
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <router-link to="/" class="nav-link active" aria-current="page" href="#">Home</router-link>
+                <router-link to="/" class="nav-link active" aria-current="page">Home</router-link>
+                <router-link to="/features" class="nav-link active" aria-current="page">Feature Films</router-link>
                 <router-link to="/about" class="nav-link">About</router-link>
               </div>
             </div>
