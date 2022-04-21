@@ -113,10 +113,8 @@ export default {
         box-shadow: none;
       }
 
+      // these will come aout as anchor tags, so a few attributes (from the general style in App.vue) need to be overridden
       .nav-link {
-        font-family: branded-font, "Times New Roman", Times, serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
         color: $colour-banner-primary-text;
 
         // ToDo: these will be changed when this is converted into a Bootstrap navbar

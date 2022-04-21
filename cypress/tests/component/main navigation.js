@@ -7,11 +7,11 @@ describe('The main navigation bar', ()=>{
     })
     it('Can take you to the home page from the landing page', () =>{
         cy.get('.navbar ').get('a').contains('Home').click()
-        cy.get('h1').should('have.text', 'Welcome')
+        cy.get('h1').should('contain', 'Welcome')
     })
     it('Can take you to the about page from the landing page', () =>{
         cy.get('.navbar ').get('a').contains('About').click()
-        cy.get('h1').should('have.text', 'About')
+        cy.get('h1').should('contain', 'About')
     })
 
 })

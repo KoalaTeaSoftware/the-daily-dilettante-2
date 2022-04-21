@@ -5,7 +5,7 @@
   <div id="content">
     <router-view/>
   </div>
-  <div id="footer" class="fixed-bottom"><p>Footer</p></div>
+  <!--div id="footer" class="fixed-bottom"><p>Footer</p></div-->
 </template>
 
 <style lang="scss">
@@ -41,10 +41,13 @@ body{
   }
 
   #content {
+    // most of the pages are quite full, so the content is a fluid container, but this makes it feel 'tight' on the page
+    // a fluid container would make the left and right margins too big. this seems OK
+    margin: 0.5rem;
+
     // ToDo: the following will need to be well adjusted when real nav bars have been created.
     // they ensure that the content can be seen despite the header and footer
     // and go with the
-    padding-top: 3em;
     padding-bottom: 4em;
   }
 
@@ -52,6 +55,15 @@ body{
     font-family: branded-font, "Times New Roman", Times, serif;
     text-align: center;
   }
+
+  // set links all over to appear in the branded font
+  a {
+    font-family: branded-font, "Times New Roman", Times, serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $colour-body-text;
+  }
+
 }
 </style>
 <script>
