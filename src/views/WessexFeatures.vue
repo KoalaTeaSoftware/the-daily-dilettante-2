@@ -3,7 +3,7 @@
       <h1>Thomas Hardy's Wessex Dramas</h1>
       <h2>A Duo of Anthology Features:</h2>
       <div class="row">
-        <div v-for="movie in movies" class="col" :id="movie.id">
+        <div v-for="movie in movies" class="col-md-6" :id="movie.id">
           <div class="row">
             <h3 v-html="movie.title"></h3>
             <p>Everyone is welcome to audition for this feature's, cast and crew roles. Please drop us a line
@@ -22,9 +22,9 @@
             <div class="col">
               <ol>
                 <li v-for="component in movie.components">
-                  <div class="row movie-list">
+                  <div class="row movie-list align-items-center">
                     <div class="col">{{ component.title }}</div>
-                    <div class="col>">
+                    <div class="col">
                       <a :href="component.screenplay"
                          class="list-item-additional-data ext-link"
                          target="_blank">Screenplay</a>
@@ -153,11 +153,7 @@ export default {
 
     li {
       margin-top: .5rem;
-
-      .list-item-additional-data {
-        float: right;
-      }
-
+      min-height: 2em;
     }
   }
 }
