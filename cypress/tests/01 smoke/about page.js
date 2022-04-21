@@ -6,6 +6,6 @@ describe('The About page (Smoke Tests', () => {
         cy.visit('about')
     })
     it('Has the correct level 1 heading', ()=>{
-        cy.get('h1').should('have.text', 'About')
+        cy.get('h1').should('contain', 'About')
     })
 })

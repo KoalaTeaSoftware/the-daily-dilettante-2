@@ -9,6 +9,6 @@ describe('Welcome Page (Smoke Tests)', ()=>{
         cy.title().should('contain', 'The Daily Dilettante')
     })
     it('Has the correct level 1 heading', ()=>{
-        cy.get('h1').should('have.text', 'Welcome')
+        cy.get('h1').should('contain', 'Welcome')
     })
 })

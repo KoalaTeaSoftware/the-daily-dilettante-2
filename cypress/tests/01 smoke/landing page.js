@@ -10,7 +10,7 @@ describe("The Landing Page (Smoke Tests)", ()=>{
     })
     // The first section in the landing page is built suing the editable div component, quickly see if it works
     it("Has the correct level 1 heading", ()=>{
-        cy.get("h1").should("have.text", "Welcome")
+        cy.get("h1").should("contain", "Welcome")
     })
 
 })
