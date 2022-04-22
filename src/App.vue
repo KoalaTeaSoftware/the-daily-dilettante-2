@@ -63,7 +63,17 @@ body{
     -moz-osx-font-smoothing: grayscale;
     color: $colour-body-text;
   }
-
+  .ext-link::after {
+    content: "";
+    display: inline-block;
+    vertical-align: super;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.5em;
+    //noinspection CssUnknownTarget
+    background: url('@/assets/new-tab.svg') 0 0 no-repeat;
+    background-size: contain;
+  }
 }
 </style>
 <script>
