@@ -3,6 +3,7 @@ import Welcome from "@/views/Welcome";
 import About from "@/views/About";
 import WessexFeatures from '@/views/WessexFeatures'
 import WessexPodcasts from "@/views/WessexPodcasts";
+import Newsletter from "@/views/Newsletter";
 
 const routes = [
     {
@@ -20,6 +21,18 @@ const routes = [
     }, {
         path: '/podcasts',
         name: 'podcasts',
+        component: WessexPodcasts
+    }, {
+        path: '/newsletter',
+        name: 'newsletter',
+        component: Newsletter
+    }, {
+        path: '/storyworlds/wessex/features',
+        name: 'legacy-features',
+        component: WessexFeatures
+    }, {
+        path: '/storyworlds/wessex/podcasts',
+        name: 'legacy-podcasts',
         component: WessexPodcasts
     }
 ]

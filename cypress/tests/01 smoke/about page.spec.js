@@ -1,11 +1,8 @@
-/*
-The bout page is currently just there to show that it is there
- */
 describe('The About page (Smoke Tests', () => {
-    beforeEach(() => {
+    it("Has the correct major parts", () => {
         cy.visit('about')
-    })
-    it('Has the correct level 1 heading', ()=>{
+        cy.title().should('contain', 'The Daily Dilettante')
         cy.get('h1').should('contain', 'About')
+        cy.get('#footer').should('exist')
     })
 })

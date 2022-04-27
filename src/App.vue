@@ -5,7 +5,7 @@
   <div id="content">
     <router-view/>
   </div>
-  <!--div id="footer" class="fixed-bottom"><p>Footer</p></div-->
+<div id="footer" class="fixed-bottom"><p class="d-none">Footer</p></div>
 </template>
 
 <style lang="scss">
