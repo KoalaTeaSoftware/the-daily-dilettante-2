@@ -1,5 +1,5 @@
 {
   "projects": {
-    "default": "stage-5675e"
-  }
+    "live": "daily-dilettante",
+    "stage": "stage-5675e"  }
 }
