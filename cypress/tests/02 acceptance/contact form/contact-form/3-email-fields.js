@@ -9,7 +9,7 @@ describe('The email fields on the contact form', () => {
     })
 
     it('hides the error prompt when both emails contain a valid address', () => {
-        const sampleAddress = 'a@b.com'; // why doesn't chance work here? chance.email();
+        const sampleAddress = chance.email();
 
         cy.get('#address1').type(sampleAddress)
         cy.get('#address2').type(sampleAddress)
