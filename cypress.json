@@ -5,5 +5,8 @@
   "ignoreTestFiles": [
     "*.md",
     "**/samples/**"
-  ]
+  ],
+  "env": {
+    "mailHandler": "https://us-central1-daily-dilettante.cloudfunctions.net/sendMail"
+  }
 }

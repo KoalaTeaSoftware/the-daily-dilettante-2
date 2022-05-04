@@ -4,6 +4,7 @@ import About from "@/views/About";
 import WessexFeatures from '@/views/WessexFeatures'
 import WessexPodcasts from "@/views/WessexPodcasts";
 import Newsletter from "@/views/Newsletter";
+import Contact from "@/views/Contact";
 
 const routes = [
     {
@@ -22,6 +23,10 @@ const routes = [
         path: '/podcasts',
         name: 'podcasts',
         component: WessexPodcasts
+    }, {
+        path: '/contact',
+        name: 'contact',
+        component: Contact
     }, {
         path: '/newsletter',
         name: 'newsletter',

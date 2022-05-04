@@ -19,9 +19,11 @@ const firebaseConfig = {
     measurementId: "G-RJK0G5SZ9Z"
 };
 
-// this makes a couple of objects that should be visible the world over
-// to use them has something like import {DB_HANDLE} from '@/main.js'
-export const APP_HANDLE = initializeApp(firebaseConfig);
+// not yet seen a reason to export this
+const APP_HANDLE = initializeApp(firebaseConfig);
+
+// this makes the Firestore database visible the world over
+// to use them have something like import {DB_HANDLE} from '@/main.js'
 export const DB_HANDLE = getFirestore(APP_HANDLE);
 
 // still don't know much about this

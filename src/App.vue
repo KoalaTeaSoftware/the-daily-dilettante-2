@@ -5,7 +5,7 @@
   <div id="content">
     <router-view/>
   </div>
-<div id="footer" class="fixed-bottom"><p class="d-none">Footer</p></div>
+<div id="footer" class="fixed-bottom"><SecondryNav/></div>
 </template>
 
 <style lang="scss">
@@ -39,6 +39,7 @@ body{
     color: $colour-banner-primary-text;
     background-color: $colour-banner-background;
   }
+
 
   #content {
     // most of the pages are quite full, so the content is a fluid container, but this makes it feel 'tight' on the page
@@ -74,11 +75,13 @@ body{
     background: url('@/assets/new-tab.svg') 0 0 no-repeat;
     background-size: contain;
   }
+
 }
 </style>
 <script>
 import Header from "@/components/Header";
+import SecondryNav from "@/components/SecondryNav";
 export default {
-  components: {Header}
+  components: {SecondryNav, Header}
 }
 </script>
