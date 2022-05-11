@@ -33,7 +33,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_STAGE_5675E }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DAILY_DILETTANTE }}'
           channelId: live
-          projectId: stage-5675e
-#  ToDo: why is this calling the project stage...?
+          projectId: daily-dilettante
