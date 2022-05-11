@@ -1,15 +1,17 @@
+import {randomEmailAddress} from "../contactFormUtilities";
+
 describe('The email fields on the contact form', () => {
     beforeEach(() => {
         cy.visit('contact')
     })
 
-    it('Starts with the address fields empty', ()=>{
+    it('Starts with the address fields empty', () => {
         cy.get('#address1').should('be.empty')
         cy.get('#address1').should('be.empty')
     })
 
     it('hides the error prompt when both emails contain a valid address', () => {
-        const sampleAddress = chance.email();
+        const sampleAddress = randomEmailAddress();
 
         cy.get('#address1').type(sampleAddress)
         cy.get('#address2').type(sampleAddress)
