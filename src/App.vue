@@ -5,7 +5,10 @@
   <div id="content">
     <router-view/>
   </div>
-<div id="footer" class="fixed-bottom"><SecondryNav/></div>
+  <div id="footer" class="fixed-bottom">
+    <SecondaryNav/>
+  </div>
+  <UserIdentity/>
 </template>
 
 <style lang="scss">
@@ -64,6 +67,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: $colour-body-text;
   }
+
   .ext-link::after {
     content: "";
     display: inline-block;
@@ -80,8 +84,10 @@ body {
 </style>
 <script>
 import Header from "@/components/Header";
-import SecondryNav from "@/components/SecondryNav";
+import SecondaryNav from "@/components/SecondaryNav";
+import UserIdentity from "@/components/UserIdentity";
+
 export default {
-  components: {SecondryNav, Header}
+  components: {UserIdentity, SecondaryNav, Header},
 }
 </script>
