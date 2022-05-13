@@ -3,10 +3,10 @@ import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
 
-// this is what is needed to get firebase going, and to get access to the pages database
-import {initializeApp} from "firebase/app";
-import {getFirestore} from "firebase/firestore";
-import {getAnalytics} from "firebase/analytics";
+// using the compat firebase stuff because we are using the latest versions (forget the details)
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 // ToDo: turn the API key into a 'secret'
 const firebaseConfig = {
@@ -19,15 +19,15 @@ const firebaseConfig = {
     measurementId: "G-RJK0G5SZ9Z"
 };
 
-// not yet seen a reason to export this
-const APP_HANDLE = initializeApp(firebaseConfig);
+// Use this to initialize the firebase App
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-// this makes the Firestore database visible the world over
-// to use them have something like import {DB_HANDLE} from '@/main.js'
-export const DB_HANDLE = getFirestore(APP_HANDLE);
+// Make these available to all the components
+export const DB_HANDLE = firebaseApp.firestore();
+export const AUTH_HANDLE = firebase.auth();
 
 // still don't know much about this
-const analytics = getAnalytics(APP_HANDLE);
+// const analytics = getAnalytics(APP_HANDLE);
 
 // actually generate the site
 createApp(App)
