@@ -12,7 +12,7 @@
 @import "src/assets/livery";
 
 // Apply these attributes to the body tag so that the whole page, irrespective of size will look yellow
-body{
+body {
   color: $colour-body-text;
   background-color: $colour-page-background !important;
   //noinspection CssUnknownTarget
