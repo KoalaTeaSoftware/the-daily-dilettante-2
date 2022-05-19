@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg" aria-label="The chapter nav bar">
     <div class="container-fluid">
-      <div class=""  id="secondary-nav">
+      <div class="" id="secondary-nav">
         <div class="navbar-nav">
           <router-link to="/contact" class="nav-link active" aria-current="page">Contact</router-link>
           <a v-if="iAmLoggedIn" type="button" id="logoutButton" class="nav-link" @click='logout'>Logout</a>
@@ -12,24 +12,27 @@
     </div>
   </nav>
 </template>
-
 <script>
 import UserIdentity from "@/components/UserIdentity";
-import {AUTH_HANDLE} from "@/main";
+
+import {pinia} from "@/main";
+import {useUserState} from "@/stores/UserState";
+
+let myState = null
 
 export default {
   name: "SecondaryNav",
-  data() {
-    return {
-      showAsLoggedIn: false
+  setup() {
+    myState = useUserState(pinia)
+  },
+  computed: {
+    iAmLoggedIn() {
+      return myState.amLoggedIn
     }
   },
   methods: {
     logout() {
-      /*
-        In order to provide the logout function, this component channels the logout method in the user identity manager
-        There may be a nicer way to do this, but this way is quick and simple, and makes the channelling obvious
-      */
+      // make use of the user identity's handle on this operation
       UserIdentity.methods.logOut()
     }
   },

@@ -29,22 +29,27 @@ helpLink: 'https://example.com/welcome'
 <script>
 import 'firebaseui/dist/firebaseui.css';
 import firebase from 'firebase/compat/app';
-import {AUTH_HANDLE} from "@/main";
+import {AUTH_HANDLE, pinia} from "@/main";
+import {useUserState} from "@/stores/UserState";
 
 const firebaseui = require('firebaseui');
 
+let myState = null
+
 export default {
   name: "UserIdentity",
+  setup() {
+    myState = useUserState(pinia)
+  },
   methods: {
     logOut() {
-      console.log("UID Component: Logging Out")
       firebase.auth().signOut()
     },
   },
   mounted() {
     // initialise the Firebase UI component
     const ui = new firebaseui.auth.AuthUI(AUTH_HANDLE);
-  console.log("Setting up the firebase  UI")
+    console.log("Setting up the firebase  UI")
     // Make it so that when the modal is mounted, the FB UI component is started-up
     const el = document.getElementById('login-component')
     console.log(`Found the element that is the modal ${el}`)
@@ -64,19 +69,15 @@ export default {
 
     // Whenever this component is set up (probably this will only work properly if there is only 1 in the app)
     // Make a listener
-    /*
-    ToDo it may be that this is going to be useful when we use the custom claims an allow the editable div to work as intended
+    // ToDo it may be that this is going to be useful when we use the custom claims an allow the editable div to work as intended
     firebase.auth().onAuthStateChanged((user) => {
       console.log('User has changed')
       if (user) {
-        currentUserData = user
-        console.log(`User is now ${JSON.stringify(currentUserData)}`)
+        myState.amLoggedIn = true;
       } else {
-        currentUserData = null
-        console.log(`User is now ${currentUserData}`)
+        myState.$reset()
       }
     });
-     */
   }
 }
 </script>

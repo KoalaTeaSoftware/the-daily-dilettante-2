@@ -1,3 +1,4 @@
+
 /*
 The form is created by Firebase UI, so it can be assumed that a lot of its checks and stuff work well
 The dummy credentials given here will have to be set up in the Firebase authorisation database
@@ -12,6 +13,7 @@ describe('Users can log in', () => {
     const LOGOUT_BUTTON_LOCATOR = '#logoutButton'
 
     const GOOD_DUMMY_USERNAME = 'a@b.com'
+    // noinspection SpellCheckingInspection
     const GOOD_DUMMY_PASSWORD = 'qwertyuiop'
     const BAD_DUMMY_USERNAME = chance.email();
 
@@ -22,20 +24,22 @@ describe('Users can log in', () => {
 
     it('Shows the anonymous user as logged-out', () => {
         cy.get(START_LOGIN_BUTTON_LOCATOR).should('be.visible')
-        cy.get(LOGOUT_BUTTON_LOCATOR).should('not.be.visible')
+        cy.get(LOGOUT_BUTTON_LOCATOR).should('not.exist')
     })
 
     // We want the user to have to do something to initiate the login activity
     it('Does not initially provide the login form', () => {
         cy.get(USERNAME_FIELD_LOCATOR).should('not.exist')
         cy.get(PASSWORD_FIELD_LOCATOR).should('not.exist')
-        cy.get('.firebaseui-id-submit').should('not.exist')//.contains('button', 'NEXT').should('not.exist')
+        cy.get('.firebaseui-id-submit').should('not.exist')
     })
 
     it('Provides a login form when the user asks for it', () => {
+        // the insertion of the should invokes the default wait-for-it-to-be-found
+        // it is required because vue.js actually trashes domain elements, rather than merely hiding them
         cy.get(START_LOGIN_BUTTON_LOCATOR).should('be.visible').click()
-        // cy.get(USERNAME_FIELD_LOCATOR).should('be.visible')
-        // cy.get('.firebaseui-form-actions').contains('Next').should('be.visible') // although it is transformed to upper-case, it s actually mixed case
+        cy.get(USERNAME_FIELD_LOCATOR).should('be.visible')
+        cy.get('.firebaseui-form-actions').contains('Next').should('be.visible') // although it is transformed to upper-case, it s actually mixed case
     })
 
     // the form can be assumed to work correctly, but we want to see that we have configured it correctly
@@ -56,7 +60,7 @@ describe('Users can log in', () => {
         cy.get(DO_LOGIN_BUTTON_LOCATOR).should('not.exist')
 
         // the buttons change
-        cy.get(START_LOGIN_BUTTON_LOCATOR).should('not.be.visible')
+        cy.get(START_LOGIN_BUTTON_LOCATOR).should('not.exist')
         cy.get(LOGOUT_BUTTON_LOCATOR).should('be.visible')
     })
 
@@ -75,11 +79,11 @@ describe('Users can log in', () => {
 
         // the buttons change
         cy.get(START_LOGIN_BUTTON_LOCATOR).should('be.visible')
-        cy.get(LOGOUT_BUTTON_LOCATOR).should('not.be.visible')
+        cy.get(LOGOUT_BUTTON_LOCATOR).should('not.exist')
     })
 
     // double-check that it is rejecting silly usernames
-    // this test does, sor' ov, provide a litmus test for hacking of the auth database (but that is not really what it is for)
+    // this test does (sor' ov) provide a litmus test for hacking of the auth database (but that is not the real purpose of the test)
     it('does not allow a user with bad credentials to log in', () => {
         // repeat the login here because it is easy, and we are testing the UI
         cy.get(START_LOGIN_BUTTON_LOCATOR).click()
