@@ -1,7 +1,12 @@
+This provides a way in which the user can log in and log out.
+To get the login functionality, this component has to be instantiated somewhere.
+Once that is done, then, to gt logged out, then the logout() method can be used
+
 Depends on >npm install --save firebase auth firebaseui
 
 ToDo: Make the failing user-journey a bit more friendly
-See https://github.com/firebase/firebaseui-web#configure-email-provider for information about configuring the sing-in component
+See https://github.com/firebase/firebaseui-web#configure-email-provider for information about configuring the sign-in component
+Here are som possible options:
 
 adminEmail: 'info@thedailydilettante.com',
 helpLink: 'https://example.com/welcome'
@@ -30,25 +35,28 @@ import {useUserState} from "@/stores/UserState";
 
 const firebaseui = require('firebaseui');
 
-let myState = null
+let handleOnMyState = null
 
 export default {
   name: "UserIdentity",
-  setup() {
-    myState = useUserState(pinia)
-  },
   methods: {
     logOut() {
+      // provide a handle to the outside world to get logging-out done
       firebase.auth().signOut()
     },
   },
   mounted() {
+    // get this handle as soon as is feasible
+    handleOnMyState = useUserState(pinia)
+
     // initialise the Firebase UI component
     const ui = new firebaseui.auth.AuthUI(AUTH_HANDLE);
     console.log("Setting up the firebase  UI")
-    // Make it so that when the modal is mounted, the FB UI component is started-up
+
+    // This is assuming that it is going to live inside a Bootstrap modal (hard-coded to have the id shown)
     const el = document.getElementById('login-component')
-    console.log(`Found the element that is the modal ${el}`)
+
+    // Make it so that when that modal is mounted, the FB UI component is started-up
     el.addEventListener('show.bs.modal', () => {
       // noinspection JSCheckFunctionSignatures
       ui.start('#firebaseui-auth-container', {
@@ -63,15 +71,15 @@ export default {
       })
     })
 
-    // Whenever this component is set up (probably this will only work properly if there is only 1 in the app)
-    // Make a listener
-    // ToDo it may be that this is going to be useful when we use the custom claims an allow the editable div to work as intended
+    // Given that we are using Firebase, hook into the user change event.
+    // It appears that directly fiddling with the state (rather than through methods) is the way to make it reactive
     firebase.auth().onAuthStateChanged((user) => {
       console.log('User has changed')
       if (user) {
-        myState.amLoggedIn = true;
+        // ToDo it may be that this is going to be useful when we use the custom claims an allow the editable div to work as intended
+        handleOnMyState.amLoggedIn = true;
       } else {
-        myState.$reset()
+        handleOnMyState.$reset()
       }
     });
   }
