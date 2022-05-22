@@ -1,0 +1,4 @@
+-rw-r--r-- 1 goldt 197611 1538 Apr 22 17:12 1_Twitter_colored_svg-128.webp
+-rw-r--r-- 1 goldt 197611 1182 Apr 22 17:12 1_Youtube_colored_svg-128.webp
+-rw-r--r-- 1 goldt 197611 8022 Apr 22 17:11 Instagram_colored_svg_1-128.webp
+-rw-r--r-- 1 goldt 197611  870 Apr 22 17:11 tumblr2_colored_svg-128.webp
