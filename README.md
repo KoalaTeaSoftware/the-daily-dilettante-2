@@ -9,7 +9,7 @@
   * Each 'page' has any modifying CSS statements built into itself
 * Control
   * ~/main.js
-    * Provide firebase linkage
+    * Provides firebase linkage
     * Exports 
       * DB_HANDLE - this give access to the Firestore (see, e.g. EditableDive)
       * APP_HANDLE - not sure what use this is going to be outside of main.js

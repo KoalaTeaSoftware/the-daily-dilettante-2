@@ -13,6 +13,9 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
+// Placing generally used constants here, in this file, becuase everyone knows that this is hwere custom stuff goes
+//
+
 // Import commands.js using ES2015 syntax:
 import './commands'
 

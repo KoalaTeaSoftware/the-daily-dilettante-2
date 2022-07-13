@@ -1,43 +1,31 @@
+// note how the creation of the pinia store is hooked into the creation of the app itself
+import {PINIA_HANDLE} from "@/stores";
+console.log(`The pinia is available from main [${!!PINIA_HANDLE}]`)
+
+// import { initializeApp } from 'firebase-admin/app';
+// it is necessary to force this app to run the initialise app that lives in the compat part of the distribution
+// Otherwise the build process creates bags of dependency failures
+import firebase from 'firebase/compat/app';
+import {firebaseConfig} from "@/firebase/config";
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+console.log(`The firebase app has been created [${!!firebaseApp}], but this is local to main`)
+
+// now use THAT app that was created above (rather than any other one that gets picked-up) to get a handle on the firestore that goes with it
+// note that we have to specifically import the firestore from the compat part of the distribution
+import 'firebase/compat/firestore';
+export const DB_HANDLE = firebaseApp.firestore()
+console.log(`The database handle app is available from main [${!!DB_HANDLE}]`)
+
+import {getAuth} from "firebase/auth";
+export const AUTH_HANDLE = getAuth() //firebase.auth();
+console.log(`The auth handle is available from main [${!!AUTH_HANDLE}]`)
+
 // this is needed to get Vue.js to generate things
 // noinspection SpellCheckingInspection
-
 import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
-
-// using the compat firebase stuff because we are using the latest versions of vue (forget the details)
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
-
-import {createPinia} from "pinia";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyBm4mMSmMw8g15ErVonc23nKDszjlEpipI",
-    authDomain: "daily-dilettante.firebaseapp.com",
-    projectId: "daily-dilettante",
-    storageBucket: "daily-dilettante.appspot.com",
-    messagingSenderId: "749678297903",
-    appId: "1:749678297903:web:2931caec98bc8fcbf057da",
-    measurementId: "G-RJK0G5SZ9Z"
-};
-
-// Use this to initialize the firebase App
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-// ToDo: see if these really need to be shared around the world, or could be local to where they are needed
-// The DB handle will be used by the editable components, might as well get it once, and share that everywhere
-export const DB_HANDLE = firebaseApp.firestore();
-export const AUTH_HANDLE = firebase.auth();
-
-// still don't know much about this
-// const analytics = getAnalytics(APP_HANDLE);
-
-// we need to be explicit about which pinia instance to use in the various components that need it
-export const pinia = createPinia()
-
-// actually generate the site, and the data store
 createApp(App)
-    .use(router, pinia)
+    .use(router, PINIA_HANDLE)
     .mount('#app')
 

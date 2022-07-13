@@ -26,8 +26,7 @@ The VueShowdown component is detailed in various places
 <script>
 import {VueShowdown} from 'vue-showdown';
 import {collection, query, where, getDocs} from "firebase/firestore";
-
-import {DB_HANDLE} from '@/main.js'
+import {DB_HANDLE} from "@/main";
 
 // Note that the showdown-capable panel is given the name 'markDownPanel', and this name us used when the element is declared in the template
 // noinspection JSUnusedGlobalSymbols

@@ -47,7 +47,9 @@
 </template>
 
 <script>
-
+/**
+ * Note how the (spare)skeleton of all of the books is set up in the following data structure. The episode lists are populated in the mounted() function
+ */
 export default {
   name: "WessexPodcasts",
   data() {

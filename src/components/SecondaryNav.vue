@@ -15,8 +15,8 @@
 <script>
 import UserIdentity from "@/components/UserIdentity";
 
-import {pinia} from "@/main";
 import {useUserState} from "@/stores/UserState";
+import {PINIA_HANDLE} from "@/stores";
 
 // declare the handle this way so that it is not visible to the outside world (although the store itself is)
 let handleOnMyState = null
@@ -24,12 +24,15 @@ let handleOnMyState = null
 export default {
   name: "SecondaryNav",
   setup() {
-    handleOnMyState = useUserState(pinia)
+    handleOnMyState = useUserState(PINIA_HANDLE)
   },
   computed: {
     iAmLoggedIn() {
       // making direct use of the state in this way appears to be the way to ensure that this element is responsive to the state
-      return handleOnMyState && handleOnMyState.amLoggedIn
+      console.log(`Secondary Nav. got handler [${!!handleOnMyState}]`)
+      console.log(`Secondary Nav. logged in [${!!handleOnMyState.loggedInFlag}]`)
+      console.log(`Secondary Nav. admin  [${!!handleOnMyState.editorFlag}]`)
+      return !!handleOnMyState.loggedInFlag;
     }
   },
   methods: {
@@ -37,7 +40,7 @@ export default {
       // make use of the user identity's handle on this operation (need to have the .methods. bit in here, or Vue gets lost).
       UserIdentity.methods.logOut()
     }
-  },
+  }
 }
 </script>
 

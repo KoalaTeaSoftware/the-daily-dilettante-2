@@ -21,3 +21,7 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# firebase
+/src/daily-dilettante-firebase-adminsdk-uexl3-1d11b10482.json
+/src/daily-dilettante-db7d98493fb9.json

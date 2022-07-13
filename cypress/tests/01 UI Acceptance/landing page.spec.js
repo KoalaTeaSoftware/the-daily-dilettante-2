@@ -6,19 +6,12 @@ describe("The Landing page", () => {
         cy.visit("")
     })
 
-    it('Displays content for all cloud-sourced areas', () => {
-        cy.get('.editableDiv .loadingSpinner')
-            .each(($el) => {
-                cy.wrap($el).should('not.be.visible')
-            })
-        cy.get('.editableDiv .displayedContent p')
-            // there may be more than one paragraph, but we don't really know how many
-            .should('have.length.at.least', 1)
+    it("Has the correct major parts", () => {
+        cy.hasCorrectMainParts('The Daily Dilettante', 'Welcome', '#footer')
+    })
 
-            // "loading" is the dummy text that the editable div will display if it can't retrieve something good
-            .eq(0)
-            .should('not.contain', 'Loading')
-            .should('be.visible')
+    it('Displays content for all cloud-sourced areas', () => {
+        cy.hasRetrievedAllCloudSourcedBlocks()
     })
 
     it('Gets enough items into the carousel from the data definition', () => {
@@ -32,7 +25,7 @@ describe("The Landing page", () => {
     })
 
     it('Can retrieve all of the carousel images', () => {
-        // Carousel images appear to be lazy-loaded, so that the later ones do not offer any useful attributes for a while
+        // Carousel images appear to be lazy-loaded, so that our general 'got all images' may yield false negatives
         // so just see if the src attributes point to gettable resources
         cy.get(".carousel-item > img")
             .invoke('attr', 'src')

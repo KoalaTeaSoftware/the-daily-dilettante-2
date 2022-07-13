@@ -1,12 +1,14 @@
-This provides a way in which the user can log in and log out.
+This provides a modal by which the user can log in and log out.
 To get the login functionality, this component has to be instantiated somewhere.
 Once that is done, then, to gt logged out, then the logout() method can be used
 
-Depends on >npm install --save firebase auth firebaseui
+Depends on >npm install --save firebase auth firebaseui - i.e.e the user is presented with the Google-standard UI machine
+
+The console has it that (at the moment) only known users may log in. ToDo: allow anyone to log in
 
 ToDo: Make the failing user-journey a bit more friendly
 See https://github.com/firebase/firebaseui-web#configure-email-provider for information about configuring the sign-in component
-Here are som possible options:
+Here are some possible options:
 
 adminEmail: 'info@thedailydilettante.com',
 helpLink: 'https://example.com/welcome'
@@ -30,8 +32,9 @@ helpLink: 'https://example.com/welcome'
 <script>
 import 'firebaseui/dist/firebaseui.css';
 import firebase from 'firebase/compat/app';
-import {AUTH_HANDLE, pinia} from "@/main";
 import {useUserState} from "@/stores/UserState";
+import {PINIA_HANDLE} from "@/stores";
+import {AUTH_HANDLE} from "@/main";
 
 const firebaseui = require('firebaseui');
 
@@ -47,7 +50,7 @@ export default {
   },
   mounted() {
     // get this handle as soon as is feasible
-    handleOnMyState = useUserState(pinia)
+    handleOnMyState = useUserState(PINIA_HANDLE)
 
     // initialise the Firebase UI component
     const ui = new firebaseui.auth.AuthUI(AUTH_HANDLE);
@@ -77,9 +80,9 @@ export default {
       console.log('User has changed')
       if (user) {
         // ToDo it may be that this is going to be useful when we use the custom claims an allow the editable div to work as intended
-        handleOnMyState.amLoggedIn = true;
+        useUserState(PINIA_HANDLE).loggedInFlag = true;
       } else {
-        handleOnMyState.$reset()
+        useUserState(PINIA_HANDLE).$reset()
       }
     });
   }

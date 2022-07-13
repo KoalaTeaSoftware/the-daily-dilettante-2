@@ -5,6 +5,7 @@ describe('The main navigation bar', () => {
     beforeEach(() => {
         cy.visit('')
     })
+
     it('Can take you to the home page from the landing page', () => {
         cy.get('.navbar ').get('a').contains('Home').click()
         cy.get('h1').should('contain', 'Welcome')
@@ -17,11 +18,11 @@ describe('The main navigation bar', () => {
 
     it('Can take you to the about podcasts from the landing page', () => {
         cy.get('.navbar ').get('a').contains('Podcasts').click()
-        cy.get('h2').should('contain', 'odcast') // not the missing P, trying to avoid letter case worries
+        cy.get('h2').should('contain', 'Podcast', {matchCase: false})
     })
 
     it('Can take you to the about feature films from the landing page', () => {
         cy.get('.navbar ').get('a').contains('Feature Films').click()
-        cy.get('h2').should('contain', 'eature') // not the missing P, trying to avoid letter case worries
+        cy.get('h2').should('contain', 'Feature', {matchCase: false})
     })
 })
