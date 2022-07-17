@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "production": "vue-cli-service serve --mode production"
+    "production": "vue-cli-service serve --mode production",
+    "cy:smoke":  "cypress open --config integrationFolder=cypress/tests/smoke"
   },
   "dependencies": {
     "auth": "^0.0.9",
