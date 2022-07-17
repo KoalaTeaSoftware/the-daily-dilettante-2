@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "production": "vue-cli-service serve --mode production",
-    "cy:smoke": "cypress open --config integrationFolder=cypress/features/smoke"
+    "cy:smoke": "cypress open --config integrationFolder=cypress/features/00_smoke"
   },
   "dependencies": {
     "auth": "^0.0.9",

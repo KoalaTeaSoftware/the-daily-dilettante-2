@@ -1,4 +1,4 @@
-Feature: The site pages
+Feature: Drawing Pages
   As any visitor
   So that I don't entirely loose confidence in the daily dilettante
   I want all pages to be well formed

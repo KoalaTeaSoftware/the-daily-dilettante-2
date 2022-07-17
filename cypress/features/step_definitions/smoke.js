@@ -44,5 +44,19 @@ Then('the page is well drawn with heading {string} and subheading {string} and {
                 // it is perfectly legal that the contents should be an empty string. Leaving it in until it proves to be annoying
                 .should('not.be.empty')
         }
-
     });
+
+When('I click the main navigation links I get the appropriate page', (dataTable) => {
+    // The table is going to be quoted having titles like this
+    //     | linkText | expectedTitle |
+    // note that teh title row is ignored
+    for (const thisRow of dataTable.rows()) {
+        cy.log('row : ' + thisRow);
+        cy.log(`Going to click on link ${thisRow[0]} and expect ${thisRow[1]}`)
+        cy.get('.navbar ').get('a').contains(thisRow[0]).click()
+        cy.get('h1').should('contain', thisRow[1], {matchCase: false})
+
+
+    }
+
+})
