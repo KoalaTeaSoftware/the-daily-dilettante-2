@@ -1,7 +1,8 @@
 {
   "baseUrl": "http://localhost:8080/",
   "projectId": "vwhed1",
-  "integrationFolder": "cypress/tests",
+  "integrationFolder": "cypress/features",
+  "testFiles": "**/*.{feature,features,spec.js}",
   "ignoreTestFiles": [
     "*.md",
     "**/samples/**"

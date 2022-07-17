@@ -1,4 +1,5 @@
 import {INVALID_CHAR_POOL, makeFormData} from "../contactFormUtilities";
+
 const config = require('../../../../../functions/email.config.json')
 
 describe('the sever-side mail handler checks the message', () => {

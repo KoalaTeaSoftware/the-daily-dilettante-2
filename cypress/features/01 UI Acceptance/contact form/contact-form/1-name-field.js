@@ -1,5 +1,5 @@
 const config = require('../../../../../functions/email.config.json')
-import {VALID_CHAR_POOL, INVALID_CHAR_POOL} from "../contactFormUtilities";
+import {INVALID_CHAR_POOL, VALID_CHAR_POOL} from "../contactFormUtilities";
 
 describe('the robustness of the name field on the contact form', () => {
     const specialName = 'Teddy the special '; // ensure that, if things go wrong, we get recognisable data

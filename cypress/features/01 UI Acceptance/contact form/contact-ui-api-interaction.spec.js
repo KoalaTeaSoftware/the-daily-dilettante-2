@@ -5,7 +5,7 @@ const failureContains = 'could not'
 
 describe("The contact page - Integration with the real mail handler", () => {
     /*
-     * The component tests verify, in vitro, that each end of this channel behave as expected.
+     * The component features verify, in vitro, that each end of this channel behave as expected.
      * This checks that filling in the form, and hitting the Send button will generate the expected results
      * Eliminating the possibility that each end of the channel is reading their specs from different pages
      */

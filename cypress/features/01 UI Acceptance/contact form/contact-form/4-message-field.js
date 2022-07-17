@@ -1,6 +1,5 @@
-import {INVALID_CHAR_POOL} from "../contactFormUtilities";
 /*
-This uses a (possibly less robust) method of detecting the visibility that releis on the class
+This uses a (possibly less robust) method of detecting the visibility that relies on the class
 ass the field may be visible, but off-screen
  */
 describe('the robustness of the message field on the contact form', () => {
@@ -23,7 +22,7 @@ describe('the robustness of the message field on the contact form', () => {
         cy.get('#message-group .valid-feedback').invoke('css', 'display').should('eq', 'block')
     })
 
-    // ToDo: the textarea does not take a pattern, so decide if something neeeds to be done to make it
+    // ToDo: the textarea does not take a pattern, so decide if something needs to be done to make it
     // behave as the others do when an invalid char is entered
     // it('shows the prompt when the message field is given an invalid char', () => {
     //     let str = niceString

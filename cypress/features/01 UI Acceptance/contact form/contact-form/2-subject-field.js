@@ -1,5 +1,5 @@
 const config = require('../../../../../functions/email.config.json')
-import {VALID_CHAR_POOL, INVALID_CHAR_POOL} from "../contactFormUtilities";
+import {INVALID_CHAR_POOL, VALID_CHAR_POOL} from "../contactFormUtilities";
 
 describe('the robustness of the subject field on the contact form', () => {
     const niceString = 'My subject is '
