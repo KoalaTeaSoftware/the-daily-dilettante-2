@@ -1,5 +1,5 @@
 /**
- * The router has to support some legacy routes, because the content has been slightlu rearranged / titled
+ * The router has to support some legacy routes, because the content has been slightly rearranged / titled
  * but there may be users who knew about this content under those old names, and we want not to give the idea
  * That the site is damaged
  */

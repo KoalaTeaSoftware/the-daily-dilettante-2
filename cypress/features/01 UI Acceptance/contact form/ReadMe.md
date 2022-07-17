@@ -1,7 +1,7 @@
 # Contact form
 
 * Shared configuration 
-  * firebase functions, and the UI share a set of contraints on what is acceptable
+  * firebase functions, and the UI share a set of constraints on what is acceptable
   * ~/functions/email.config.json
 * Firebase Secrets
     * The credentials, host and port for the mail server are set using environment variables
