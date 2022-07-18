@@ -29,6 +29,9 @@
 
 ## Testing Process
 
+* The cmd `npm run cy:smoke` (assuming that you are serving the app - npm run serve) can be used frequently and, within
+  about 1 minute) give some confidence that there have been no functional devastation
+
 ### Integration with Cypress Dashboard
 
 * Dashboard is at

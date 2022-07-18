@@ -13,13 +13,13 @@
   },
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "email-validator": "^2.0.4",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.21.2",
     "nodemailer": "^6.7.4"
   },
   "devDependencies": {
-    "cors": "^2.8.5",
     "firebase-functions-test": "^0.2.0"
   },
   "private": true
