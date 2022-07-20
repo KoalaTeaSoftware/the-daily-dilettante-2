@@ -1,6 +1,6 @@
 This provides a modal by which the user can log in and log out.
 To get the login functionality, this component has to be instantiated somewhere.
-Once that is done, then, to gt logged out, then the logout() method can be used
+Once that is done, then, to get logged out, then the logout() method can be used
 
 Depends on >npm install --save firebase auth firebaseui - i.e.e the user is presented with the Google-standard UI machine
 
@@ -36,8 +36,12 @@ import {useUserState} from "@/stores/UserState";
 import {PINIA_HANDLE} from "@/stores";
 import {AUTH_HANDLE} from "@/main";
 
+import {getFunctions, httpsCallable} from "firebase/functions";
+
+
 const firebaseui = require('firebaseui');
 
+// the handle that get you (i.e. the handle on) my state
 let handleOnMyState = null
 
 export default {
@@ -49,6 +53,11 @@ export default {
     },
   },
   mounted() {
+    // set up the ability to use functions, and then define handles for them
+// This has to happen after the initializeApp and executed, so putting it here is a good way to ensure this
+    const functions = getFunctions();
+    const getUserByEmail = httpsCallable(functions, 'getUserByEmail');
+
     // get this handle as soon as is feasible
     handleOnMyState = useUserState(PINIA_HANDLE)
 
@@ -79,6 +88,13 @@ export default {
     firebase.auth().onAuthStateChanged((user) => {
       console.log('User has changed')
       if (user) {
+        getUserByEmail({email: 'admin@koalateasoftware.com'})
+            .then(resultingUser => {
+              console.log(`Succeeded in getting information [${resultingUser}]`)
+            })
+            .catch(e => {
+              console.log(`Failed to get information [${e.toString()}]`)
+            })
         // ToDo it may be that this is going to be useful when we use the custom claims an allow the editable div to work as intended
         useUserState(PINIA_HANDLE).loggedInFlag = true;
       } else {
