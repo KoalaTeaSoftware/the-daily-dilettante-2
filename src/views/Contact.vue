@@ -196,7 +196,7 @@ export default {
     checkName: function () {
       console.log("checking name")
       return (
-          (this.formData.name.length > this.config.nameLengthMin) &&
+          (this.formData.name.length >= this.config.nameLengthMin) &&
           (this.formData.name.length <= this.config.nameLengthMax) &&
           (this.formData.name.match(this.config.nameRegexp) != null)
       )
@@ -204,7 +204,7 @@ export default {
     checkEmails: function () {
       console.log("checking emails")
       if (
-          (this.formData.address1.length > this.config.emailLengthMin) &&
+          (this.formData.address1.length >= this.config.emailLengthMin) &&
           (this.formData.address1.length <= this.config.emailLengthMax) &&
           (this.formData.address1 === this.formData.address2)
       ) {
@@ -218,7 +218,7 @@ export default {
     checkSubject: function () {
       console.log("checking subject")
       return (
-          (this.formData.subject.length > this.config.subjectLengthMin) &&
+          (this.formData.subject.length >= this.config.subjectLengthMin) &&
           (this.formData.subject.length <= this.config.subjectLengthMax) &&
           (this.formData.subject.match(this.config.subjectRegexp) != null)
       )
@@ -226,7 +226,7 @@ export default {
     checkMessage: function () {
       console.log("checking message")
       return (
-          (this.formData.message.length > this.config.msgLengthMin) &&
+          (this.formData.message.length >= this.config.msgLengthMin) &&
           (this.formData.message.length <= this.config.msgLengthMax) &&
           (this.formData.message.match(this.config.msgRegexp) != null)
       )
