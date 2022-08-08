@@ -84,7 +84,7 @@ export default {
             "Unfortunately there are malignant influences amongst the former aristocratic castle-owners, and the course of love does not run so smooth."
           ],
           episodeList: [],
-          screenplayLink: "https://www.dropbox.com/s/zbg3snqs8vyn49p/2021-12-28%20A%20Laodicean%20-%20podcasted.pdf?dl=0"
+          screenplayLink: "https://www.dropbox.com/s/yhqsckdp8ke38kj/The%20Laodicean%20-%20podcasted.pdf?dl=0"
         }
       ]
     }
