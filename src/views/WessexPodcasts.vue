@@ -90,10 +90,11 @@ export default {
     }
   },
   mounted() {
-    fetch('https://feed.podbean.com/thedailydilettante/feed.xml')
+    fetch('https://feeds.libsyn.com/431487/rss')
         .then(response => response.text())
         .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
         .then(data => {
+          //SonarLint does not know about using guerySelector for 'item's, but this does work
               const itemList = data.querySelectorAll('item')
               itemList.forEach(item => {
                 console.log(`processing an item:${item}`)
